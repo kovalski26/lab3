@@ -1,49 +1,53 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <style>
-        .header-bg {
-            text-align: center;
-        }
-        
-        .h1 {
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 14pt;
-        }
-        
-        .header-label {
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 14pt;
-            text-align: center;
-        }
-    </style>
-    <meta charset="utf-8">
-    <title>Калькулятор</title>
-    <script defer src="calc.js"></script>
-</head>
-
-<body>
-    <h1><label>Тип вклада</label></h1>
-    <h1><select id="type" autofocus required onchange="switch_type();">
-        <option value="none"hidden>Выберите тип вклада</option>
-        <option value = "long">Пополняемый</option>
-        <option value = "fast">Срочный</option>
-    </select></h1>
-    <h1><label>Срок вклада</label></h1>
-    <h1><select id="time" required disabled>
-        <option value="none"hidden>Выберите срок</option>
-        <option value="3;20" visibility='hidden'>3 месяца</option>
-        <option value = "6;20">6 месяцев</option>
-        <option value = "9;23" visibility='hidden'>9 месяцев</option>
-        <option value = "12;22">1 год</option>
-        <option value = "18;15">1.5 года</option>
-        <option value = "24;10">2 года</option>
-    </select></h1>
-    <h1><label>Сумма</label></h1>
-    <h1><input id ="sum" type="text" size="40"></h1>
-    <h1><button id="btn" onclick="calculate();">Рассчитать</button></h1>
-    <h1><textarea id="result" cols="40" rows="3"></textarea></h1>
-</body>
-
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Калькулятор</title>
+    </head>
+    <body>
+        <div id="plate" class="center">
+            <div id="input">
+                <div class="space">
+                    <select name="depositType" id="depositType">
+                        <option value="" selected disabled>Вид вклада</option>
+                        <option value="refillable">Пополняемый</option>
+                        <option value="term">Срочный</option>
+                    </select>
+                </div>
+                <div id="typeAnswer" class="space">
+                    <div id="refillable">
+                        <select name="refillableConditions">
+                            <option value="" selected disabled>Срок вклада</option>
+                            <option value="6">6 месяцев - 20%</option>
+                            <option value="12">1 год - 22%</option>
+                            <option value="18">1,5 года - 15%</option>
+                            <option value="24">2 года - 10%</option>
+                        </select>
+                    </div>
+                    <div id="term">
+                        <select name="termConditions">
+                            <option value="" selected disabled>Срок вклада</option>
+                            <option value="3">3 месяцев - 20%</option>
+                            <option value="6">6 месяцев - 22%</option>
+                            <option value="9">9 месяцев - 23%</option>
+                            <option value="12">1 год - 24%</option>
+                            <option value="18">1,5 года - 18%</option>
+                            <option value="24">2 года - 15%</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="space">
+                    <input name="depositAmount" placeholder="Сумма, руб."/>
+                </div>
+                <div class="space">
+                    <button id="button" value="submit">Рассчитать</button>
+                </div>
+            </div>
+            <div id="output">
+                <p id="outputConditions">Выберите условия вклада</p>
+                <p id="result"></p>
+            </div>
+       
+    </body>
 </html>
